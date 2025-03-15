@@ -1,4 +1,4 @@
-package fjavierjp.keepcomponents.backend.model;
+package fjavierjp.keepcomponents.backend.entity;
 
 public enum ArticleType
 {
