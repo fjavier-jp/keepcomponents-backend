@@ -1,17 +1,21 @@
-package fjavierjp.keepcomponents.backend.model;
+package fjavierjp.keepcomponents.backend.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Past;
 
 @Entity
+@Table(name = "purchases")
 public class Purchase implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -20,15 +24,17 @@ public class Purchase implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "article_id")
 	private Article article;
 
 	@Column(nullable = false)
+	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/mm/yyyy")
+	@Past(message = "")
 	private Date date;
 
 	@Column(nullable = false)

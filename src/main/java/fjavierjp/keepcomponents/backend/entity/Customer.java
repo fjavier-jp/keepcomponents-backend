@@ -1,19 +1,25 @@
-package fjavierjp.keepcomponents.backend.model;
+package fjavierjp.keepcomponents.backend.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
 @Entity
+@Table(name = "customers")
+@JsonIgnoreProperties("purchases")
 public class Customer implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -53,10 +59,10 @@ public class Customer implements Serializable
 	@Size(max = 10)
 	private String postalCode;
 	
-	@Size(max = 100)
+	@Size(min = 2, max = 100)
 	private String region;
 	
-	@OneToMany(mappedBy = "purchase")
+	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
 	private List<Purchase> purchases;
 
 	public long getId()

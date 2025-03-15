@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fjavierjp.keepcomponents.backend.entity.Article;
 import fjavierjp.keepcomponents.backend.exception.ResourceNotFoundException;
-import fjavierjp.keepcomponents.backend.model.Article;
 import fjavierjp.keepcomponents.backend.repository.ArticleRepository;
 
 @Service
