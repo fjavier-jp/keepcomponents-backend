@@ -1,0 +1,23 @@
+.hnavbar__list
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.hnavbar__item
+{
+    padding: 1rem;
+}
+@media screen and (min-width: 575px)
+{
+    .hnavbar__list
+    {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .hnavbar__item:first-child
+    {
+        margin-right: auto;
+    }
+}

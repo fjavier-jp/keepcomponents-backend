@@ -1,0 +1,32 @@
+:root
+{
+    --body-max-width: 80%;
+    --footer-height: 52px;
+    --navbar-min-width: 50px;
+    --navbar-max-width: 200px;
+    --header-height: 150px;
+    --topbar-logo-height: 92px;
+    --topbar-menu-height: 67px;
+    --topbar-form-max-width: 300px;
+
+    --input-height: 1.25rem;
+
+    --col-padding: .5rem;
+    --col-1: 8.333%;
+    --col-2: 16.667%;
+    --col-3: 25%;
+    --col-4: 33.333%;
+    --col-5: 41.667%;
+    --col-6: 50%;
+    --col-7: 58.333%;
+    --col-8: 66.667%;
+    --col-9: 75%;
+    --col-10: 83.333%;
+    --col-11: 91.667%;
+    --col-12: 100%; 
+
+    --screen-size-xs-upper: 575px;
+    --screen-size-sm-lower: 576px;
+    --screen-size-md-lower: 768px;
+    --screen-size-lg-lower: 1024px;
+}

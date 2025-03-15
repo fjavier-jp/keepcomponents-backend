@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width:device-width, initial-scale=1.0">
+	<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">KeepComponents</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+	    rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/variables.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/hnavbar.css">
+	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/main_home.css">
+	<link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+	<div th:replace="components/header :: header"></div>
+	<div th:replace="components/navbar :: navbar"></div>
+	<div class="main" layout:fragment="content"></div>
+	<div th:replace="components/footer :: footer"></div>
+</body>
+
+</html>

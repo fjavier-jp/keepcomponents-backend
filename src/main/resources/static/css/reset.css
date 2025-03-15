@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before
+{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+img,
+picture,
+video
+{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

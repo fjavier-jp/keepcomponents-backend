@@ -1,0 +1,32 @@
+.main
+{
+    border: 1px solid black;
+}
+.main .form
+{
+    font-size: small;
+    padding-block: .5rem;
+    height: 100%;
+}
+.form-profile-img
+{
+    max-height: 100px;
+    margin-inline: auto;
+}
+.input-group-buttons
+{
+    margin-left: auto;
+    gap: .5rem;
+}
+.input-group-buttons > .button
+{
+    flex: 1 1 100%;
+}
+
+@media screen and (min-width: 575px)
+{
+    .form-profile-img
+    {
+        margin-inline: unset;
+    }    
+}

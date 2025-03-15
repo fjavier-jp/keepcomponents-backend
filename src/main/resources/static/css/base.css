@@ -1,0 +1,266 @@
+body
+{
+    display: grid;
+    grid-template-rows: var(--header-height) auto auto;
+    grid-template-columns: var(--navbar-min-width) auto;
+    grid-template-areas:
+        "header header"
+        "navbar main"
+        "footer footer";
+    height: auto;
+    min-height: 100vh;
+    gap: 1rem;
+    padding-inline: .5rem;
+    padding-bottom: .5rem;
+}
+.topbar
+{
+    grid-area: header;
+    border-bottom: 1px solid black;
+    font-size: small;
+    z-index: 9999;
+    background-color: white;
+}
+.navbar
+{
+    grid-area: navbar;
+    border: 1px solid black;
+    font-size: small;
+    z-index: 9998;
+}
+.main
+{
+    grid-area: main;
+}
+.footer
+{
+    grid-area: footer;
+    border: 1px solid black;
+    padding-inline: .5rem;
+    font-size: small;
+}
+a
+{
+    text-decoration: none;
+    color: black;
+}
+.button
+{
+    width: 100%;
+    background-color: white;
+    border-radius: 0;
+    border: 1px solid black;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+ul
+{
+    list-style: none;
+}
+.link-container
+{
+    display: flex;
+    gap: 1rem;
+}
+.small-image
+{
+    display: block;
+}
+.large-image
+{
+    display: none;
+}
+.form
+{
+    width: 100%;
+}
+.input-group
+{
+    padding-block: .5rem;
+}
+.input-label
+{
+    display: block;
+    padding-bottom: .2rem;
+}
+.input-control
+{
+    width: 100%;
+    height: var(--input-height);
+}
+.input-group-checkbox
+{
+    display: flex;
+    align-items: flex-end;
+    gap: .5rem;
+}
+.input-group-checkbox > *
+{
+    display: block;
+    padding: 0;
+}
+.input-group-searchbox
+{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.input-group-searchbox > .input-control
+{
+    width: 100%;
+    height: 2rem;
+}
+.input-group-searchbox > svg
+{
+    width: 20px;
+    position: relative;
+    float: right;
+    margin-left: -25px;
+    margin-right: 5px;
+    fill: gray;
+}
+.input-control[type="checkbox"]
+{
+    width: var(--input-height);
+    min-width: var(--input-height);
+}
+.textarea
+{
+    min-height: 5rem;
+    resize: vertical;
+}
+.input-group-buttons
+{
+    display: flex;
+    padding: 0;
+    width: 100%;
+}
+.container
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.row
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-inline: 1rem;
+}
+.row-last
+{
+    margin-top: auto
+}
+.col
+{
+    flex-basis: 100%;
+    padding-inline: var(--col-padding);
+    align-self: flex-start;
+}
+.col-checkbox
+{
+    align-self: flex-end;
+}
+.no-padding 
+{
+    padding-inline: 0;
+}
+@media screen and (min-width: 576px)
+{
+    body
+    {
+        grid-template-rows: min-content auto var(--footer-height);
+    }
+    .col-sm-3
+    {
+        flex-basis: var(--col-3);
+    }
+    .col-sm-4
+    {
+        flex-basis: var(--col-4);
+    }
+    .col-sm-5
+    {
+        flex-basis: var(--col-5);
+    }
+    .col-sm-6
+    {
+        flex-basis: var(--col-6);
+    }
+    .col-sm-7
+    {
+        flex-basis: var(--col-7);
+    }
+    .col-sm-9
+    {
+        flex-basis: var(--col-9);
+    }
+    .col-sm-offset-left
+    {
+        margin-left: auto;
+    }
+}
+@media screen and (min-width: 768px)
+{
+    .col-md-2
+    {
+        flex-basis: var(--col-2);
+    }
+    .col-md-3
+    {
+        flex-basis: var(--col-3);
+    }
+    .col-md-4
+    {
+        flex-basis: var(--col-4);
+    }
+    .col-md-5
+    {
+        flex-basis: var(--col-5);
+    }
+    .col-md-6
+    {
+        flex-basis: var(--col-6);
+    }
+    .col-md-7
+    {
+        flex-basis: var(--col-7);
+    }
+    
+}
+@media screen and (min-width: 1024px)
+{
+    body
+    {
+        border: none;
+        max-width: var(--body-max-width);
+        margin-inline: auto;
+        grid-template-columns: var(--navbar-max-width) 1fr;
+    }
+    .small-image
+    {
+        display: none;
+    }
+    .large-image
+    {
+        display: block;
+    }
+    .no-padding-left-lg
+    {
+        padding-left: 0;
+    }
+    .no-padding-right-lg
+    {
+        padding-right: 0;
+    }
+    .input-group-searchbox > .input-control
+    {
+        float: right;
+        max-width: var(--topbar-form-max-width);
+    }
+}

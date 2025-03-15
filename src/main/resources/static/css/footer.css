@@ -1,0 +1,8 @@
+
+@media screen and (min-width: 575px)
+{
+    .footer .footer__item:first-child
+    {
+        margin-right: auto;
+    }
+}

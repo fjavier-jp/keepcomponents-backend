@@ -1,0 +1,40 @@
+.main
+{
+    overflow-x: auto;
+}
+.main__table
+{
+    border-collapse: collapse;
+    font-size: small;
+    min-width: 576px;
+    width: 100%;
+}
+.main__table td,
+.main__table th
+{
+    padding: .5rem;
+}
+.main__table th
+{
+    text-align: left;
+    border: none;
+}
+.main__table tbody tr
+{
+    border: 1px solid black;
+    margin-block: 1rem;
+}
+.main__table__image-parragraph
+{
+    display: flex;
+    align-items: center;
+}
+.main__table__parragraph
+{
+    margin-left: .5rem;
+}
+.cell__actions
+{
+    display: flex;
+    gap: .5rem;
+}
