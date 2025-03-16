@@ -21,7 +21,7 @@
 }
 .main__table tbody tr
 {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     margin-block: 1rem;
 }
 .main__table__image-parragraph
@@ -37,4 +37,19 @@
 {
     display: flex;
     gap: .5rem;
+}
+.pagination
+{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	padding-block: 1rem;
+}
+.pagination > *
+{
+	font-size: 2rem;
+}
+.pagination > a
+{
+	cursor: pointer;
 }

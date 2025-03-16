@@ -18,6 +18,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -31,28 +32,35 @@ public class Article implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@NotNull(message = "Name cannot be null")
 	@Column(nullable = false)
 	@Size(max = 150)
 	private String name;
-	
+
+	@NotNull(message = "Description cannot be null")
 	@Column(nullable = false)
 	@Size(max = 150)
 	private String description;
-	
+
+	@NotNull(message = "Price cannot be null")
 	@Column(nullable = false)
 	private double price;
-	
+
+	@NotNull(message = "Stock cannot be null")
 	@Column(nullable = false)
 	private double stock;
-	
+
+	@NotNull(message = "Type cannot be null")
 	@Column(nullable = false)
 	@Enumerated(EnumType.ORDINAL)
 	private ArticleType type;
-	
+
+	@NotNull(message = "Provider cannot be null")
 	@Column(nullable = false)
 	@Enumerated(EnumType.ORDINAL)
 	private Provider provider;
-	
+
+	@NotNull(message = "Date cannot be null")
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date date;

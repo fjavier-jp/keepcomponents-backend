@@ -15,42 +15,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import fjavierjp.keepcomponents.backend.entity.Purchase;
+import fjavierjp.keepcomponents.backend.entity.Article;
 import fjavierjp.keepcomponents.backend.service.IService;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
-public class PurchaseController
+public class ArticleAPIController
 {
 	@Autowired
-	public IService<Purchase> service;
+	public IService<Article> service;
 	
-	@GetMapping("/purchases")
-	public ResponseEntity<List<Purchase>> index()
+	@GetMapping("/articles")
+	public ResponseEntity<List<Article>> index()
 	{
 		return ResponseEntity.ok(this.service.index());
 	}
 	
-	@GetMapping("/purchases/{id}")
-	public ResponseEntity<Purchase> show(@PathVariable long id)
+	@GetMapping("/articles/{id}")
+	public ResponseEntity<Article> show(@PathVariable long id)
 	{
 		return ResponseEntity.ok(this.service.show(id));
 	}
 	
-	@PostMapping("/purchases")
-	public ResponseEntity<Purchase> store(@Valid @RequestBody Purchase purchase)
+	@PostMapping("/articles")
+	public ResponseEntity<Article> store(@Valid @RequestBody Article article)
 	{
-		return new ResponseEntity<Purchase>(this.service.store(purchase), HttpStatus.CREATED);
+		return new ResponseEntity<Article>(this.service.store(article), HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/purchases/{id}")
-	public ResponseEntity<Purchase> update(@Valid @RequestBody Purchase customer, @PathVariable long id)
+	@PutMapping("/articles/{id}")
+	public ResponseEntity<Article> update(@Valid @RequestBody Article article, @PathVariable long id)
 	{
-		return ResponseEntity.ok(this.service.update(customer, id));
+		return ResponseEntity.ok(this.service.update(article, id));
 	}
 	
-	@DeleteMapping("/purchases/{id}")
+	@DeleteMapping("/articles/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void delete(@PathVariable long id)
 	{

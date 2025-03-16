@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 
 @Entity
@@ -23,7 +24,7 @@ public class Purchase implements Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
@@ -32,20 +33,25 @@ public class Purchase implements Serializable
 	@JoinColumn(name = "article_id")
 	private Article article;
 
+	@NotNull(message = "Date cannot be null")
 	@Column(nullable = false)
 	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/mm/yyyy")
 	@Past(message = "")
 	private Date date;
 
+	@NotNull(message = "Amount cannot be null")
 	@Column(nullable = false)
 	private double amount;
 
+	@NotNull(message = "Net cannot be null")
 	@Column(nullable = false)
 	private double net;
 
+	@NotNull(message = "Taxes cannot be null")
 	@Column(nullable = false)
 	private double taxes;
 
+	@NotNull(message = "Total cannot be null")
 	@Column(nullable = false)
 	private double total;
 

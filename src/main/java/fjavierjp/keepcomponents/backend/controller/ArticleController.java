@@ -1,58 +1,40 @@
 package fjavierjp.keepcomponents.backend.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
 
 import fjavierjp.keepcomponents.backend.entity.Article;
 import fjavierjp.keepcomponents.backend.service.IService;
 
-@RestController
-@RequestMapping("/api")
+@Controller
+@RequestMapping("/articles")
 public class ArticleController
 {
 	@Autowired
-	public IService<Article> service;
+	private IService<Article> service;
 	
-	@GetMapping("/articles")
-	public ResponseEntity<List<Article>> index()
+	@GetMapping(produces = MediaType.TEXT_HTML_VALUE)
+	public String index()
 	{
-		return ResponseEntity.ok(this.service.index());
+		return "views/articles/index";
 	}
 	
-	@GetMapping("/articles/{id}")
-	public ResponseEntity<Article> show(@PathVariable long id)
+	@GetMapping(value = "/create", produces = MediaType.TEXT_HTML_VALUE)
+	public String create()
 	{
-		return ResponseEntity.ok(this.service.show(id));
+		return "views/articles/form";
 	}
 	
-	@PostMapping("/articles")
-	public ResponseEntity<Article> store(@RequestBody Article article)
+	@GetMapping(value = "/edit/{id}", produces = MediaType.TEXT_HTML_VALUE)
+	public String edit(@PathVariable long id, Model model)
 	{
-		return new ResponseEntity<Article>(this.service.store(article), HttpStatus.CREATED);
-	}
-	
-	@PutMapping("/articles/{id}")
-	public ResponseEntity<Article> update(@RequestBody Article article, @PathVariable long id)
-	{
-		return ResponseEntity.ok(this.service.update(article, id));
-	}
-	
-	@DeleteMapping("/articles/{id}")
-	@ResponseStatus(HttpStatus.OK)
-	public void delete(@PathVariable long id)
-	{
-		this.service.delete(id);
+		Article article = this.service.show(id);
+		model.addAttribute(article);
+		return "views/articles/form";
 	}
 }

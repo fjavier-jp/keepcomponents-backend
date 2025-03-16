@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -28,22 +29,27 @@ public class Customer implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@NotNull(message = "Name cannot be null")
 	@Column(nullable = false)
 	@Size(max = 150)
 	private String name;
-	
+
+	@NotNull(message = "Surname cannot be null")
 	@Column(nullable = false)
 	@Size(max = 150)
 	private String surname;
-	
+
+	@NotNull(message = "Email cannot be null")
 	@Email
 	@Column(nullable = true, unique = true)
 	private String email;
-	
+
+	@NotNull(message = "Phone cannot be null")
 	@Column(nullable = false)
 	@Size(max = 15)
 	private String phone;
 	
+	@NotNull(message = "Date of birth cannot be null")
 	@Column(nullable = false)
 	private Date dob;
 

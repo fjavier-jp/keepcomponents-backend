@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout.html}">
+
+<head>
+	<title>Customers</title>
+	<link rel="stylesheet" href="/css/main_form.css">
+</head>
+
+<body>
+	<div class="main" id="form" layout:fragment="content">
+		<form class="form">
+			<input id="id" type="hidden" th:value="${customer?.id}">
+	        <div class="container">
+	            <div class="row">
+					<div class="col col-sm-6">
+                        <div class="input-group input-group-text">
+                            <label class="input-label" for="name">Name</label>
+                            <input type="text" class="input-control" name="name" id="name" th:value="${customer?.name}" required>
+                        </div>
+                    </div>
+                    <div class="col col-sm-6">
+                        <div class="input-group input-group-text">
+                            <label class="input-label" for="surname">Surname</label>
+                            <input type="text" class="input-control" name="surname" id="surname" th:value="${customer?.surname}" required>
+                        </div>
+                    </div>
+	            </div>
+				<div class="row">
+                    <div class="col col-sm-6">
+                        <div class="input-group input-group-text">
+                            <label class="input-label" for="email">Email</label>
+                            <input type="text" class="input-control" name="email" id="email" th:value="${customer?.email}" required>
+                        </div>
+                    </div>
+					<div class="col col-sm-6">
+					    <div class="input-group input-group-text">
+					        <label class="input-label" for="phone">Phone</label>
+					        <input type="text" class="input-control" name="phone" id="phone" th:value="${customer?.phone}" required>
+					    </div>
+					</div>
+	            </div>
+				<div class="row">
+				    <div class="col col-sm-6">
+				        <div class="input-group input-group-text">
+				            <label class="input-label" for="company">Company</label>
+				            <input type="text" class="input-control" name="company" id="company" th:value="${customer?.company}" maxlength="150">
+				        </div>
+				    </div>
+				    <div class="col col-sm-6">
+				        <div class="input-group input-group-text">
+				            <label class="input-label" for="position">Position</label>
+				            <input type="text" class="input-control" name="position" id="position" th:value="${customer?.position}" maxlength="150">
+				        </div>
+				    </div>
+	            </div>
+	            <div class="row">
+					<div class="col col-sm-6">
+					    <div class="input-group input-group-text">
+					        <label class="input-label" for="dob">Date of Birth</label>
+					        <input type="date" class="input-control" name="dob" id="dob" th:value="${customer?.dob}" required>
+					    </div>
+					</div>
+	                <div class="col col-sm-6">
+	                    <div class="input-group input-group-text">
+	                        <label class="input-label" for="address">Address</label>
+	                        <input type="text" class="input-control" name="address" id="address" th:value="${customer?.address}" maxlength="500">
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="row">
+	                <div class="col col-sm-6">
+	                    <div class="input-group input-group-text">
+	                        <label class="input-label" for="postal-code">Postal Code</label>
+	                        <input type="text" class="input-control" name="postalCode" id="postal-code" th:value="${customer?.postalCode}" maxlength="10">
+	                    </div>
+	                </div>
+	                <div class="col col-sm-6">
+	                    <div class="input-group input-group-text">
+	                        <label class="input-label" for="region">Region</label>
+	                        <input type="text" class="input-control" name="region" id="region" th:value="${customer?.region}" minlength="2" maxlength="100">
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="row row-last">
+	                <div class="col col-sm-4 col-sm-offset-left">
+	                    <div class="input-group input-group-buttons">
+	                        <a href="http://localhost:8080/customers" type="button" class="button">Cancel</a>
+	                        <button type="submit" class="button button-save">Save</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </form>
+
+		<script th:src="@{/js/customers/form.js}"></script>
+	</div>
+</body>
+
+</html>

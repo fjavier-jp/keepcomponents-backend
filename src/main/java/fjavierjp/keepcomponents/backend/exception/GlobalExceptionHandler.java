@@ -17,6 +17,13 @@ public class GlobalExceptionHandler
 		ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false), exception.getStackTrace().toString());
 		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(UnprocessableEntityException.class)
+	public ResponseEntity<?> handleUnprocessableEntityException(UnprocessableEntityException exception, WebRequest request)
+	{
+		ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false), exception.getStackTrace().toString());
+		return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+	}
 
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<?> handleGlobalException(Exception exception, WebRequest request)

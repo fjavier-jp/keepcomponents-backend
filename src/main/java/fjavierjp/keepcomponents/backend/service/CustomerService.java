@@ -3,6 +3,9 @@ package fjavierjp.keepcomponents.backend.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +24,13 @@ public class CustomerService implements IService<Customer>
 	public List<Customer> index()
 	{
 		return (List<Customer>) this.repository.findAll();
+	}
+	
+	@Transactional(readOnly = true)
+	public Page<Customer> search(int page, int size, String search)
+	{
+		Pageable pageable = PageRequest.of(page, size);
+		return this.repository.findAllByRegex(search, pageable);
 	}
 
 	@Override
